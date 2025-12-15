@@ -14,10 +14,10 @@ const NavBar = () => {
   ];
 
   return (
-    <div className="h-screen w-full bg-gradient-to-b from-[#f7efe5] to-[#a18276] home"
+  <div className="h-screen w-full bg-gradient-to-b from-[#f7efe5] to-[#a18276] home">
+  <div>
+    <h1 className="text-5xl font-signature ml-2">
 
-      <div>
-        <h1 className="text-5xl font-signature ml-2">
           <a
             className="link-underline link-underline-black"
             href="https://your-portfolio-link.com"
