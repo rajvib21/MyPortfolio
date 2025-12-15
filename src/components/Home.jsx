@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div
       name="home"
-      className="h-screen w-full bg-gradient-to-b from-[#f7efe5] to-[#a18276]"
+      className="home min-h-screen w-full pt-24 bg-gradient-to-b from-[#f7efe5] to-[#a18276]"
     >
       <div className="max-w-screen-lg mx-auto flex flex-col-reverse md:flex-row items-center justify-center h-full px-6">
 
@@ -33,6 +33,7 @@ const Home = () => {
             to="portfolio"
             smooth
             duration={500}
+            offset={-80}
             className="group w-fit px-6 py-3 flex items-center rounded-md bg-[#6f4e37] text-white cursor-pointer hover:scale-105 duration-300"
           >
             View Portfolio
@@ -50,6 +51,7 @@ const Home = () => {
             className="rounded-2xl w-64 sm:w-72 md:w-80 shadow-xl border-4 border-[#6f4e37]"
           />
         </div>
+
       </div>
     </div>
   );

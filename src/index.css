@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
 @tailwind base;
@@ -12,19 +11,22 @@
   }
 }
 
+/* ROOT FIX */
 #root {
-  background: linear-gradient(black 25%, rgb(31, 41, 54) 58%, black 15%);
   min-height: 100vh;
 }
 
+/* BODY */
 body {
   background: rgb(31, 41, 55);
 }
 
+/* NAVBAR */
 .nav {
-  z-index: 10;
+  z-index: 50;
 }
 
+/* LINK UNDERLINE ANIMATION */
 .link-underline {
   border-bottom-width: 0;
   background-image: linear-gradient(transparent, transparent),
@@ -36,7 +38,6 @@ body {
 }
 
 .link-underline-black {
-  /* background-image: linear-gradient(transparent, transparent), linear-gradient(#F2C, rgb(60, 34, 255)) */
   background-image: linear-gradient(transparent, transparent),
     linear-gradient(#000, #fff);
 }
@@ -44,60 +45,21 @@ body {
 .link-underline:hover {
   background-size: 100% 3px;
   background-position: 0 100%;
-  line-height: 1.2;
 }
 
-.portfolio,
-.contact {
-  margin-top: 8%;
-}
-
-.experience {
-  margin-top: 12%;
-}
-
-
-.nav-links {
-  text-underline-offset: 1rem;
-}
-
-
+/* MOBILE FIXES */
 @media screen and (max-width: 900px) {
-
-  #root {
-    background: linear-gradient(rgb(31, 41, 55) 20%, black 20%, rgb(31, 41, 55) 65%, black 25%);
-    min-height: 100vh;
-  }
-
+  .home,
   .about,
-  .contact,
   .portfolio,
   .experience,
-  .home {
+  .contact {
     text-align: center;
-    height: 100%;
-  }
-
-  .about,
-  .portfolio,
-  .experience {
-    margin-top: 10%;
+    height: auto;
   }
 
   .home img {
     margin-top: 25%;
-  }
-
-  .small-screen {
-    display: block;
-  }
-
-  .big-screen {
-    display: none;
-  }
-
-  .gap-8 {
-    gap: 4rem;
   }
 
   .home h2 {
@@ -106,13 +68,8 @@ body {
     margin-top: 7%;
   }
 
-  .portfolio-btn {
-    margin: auto;
-  }
-
   .px-12 {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-
 }
