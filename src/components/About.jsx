@@ -2,7 +2,7 @@ const About = () => {
   return (
     <div
       name="about"
-      className="about min-h-screen w-full pt-24 bg-gradient-to-b from-[#f7efe5] to-[#a18276] text-black"
+      className="about w-full pt-24 bg-gradient-to-b from-[#f7efe5] to-[#a18276] text-black"
     >
       <div className="max-w-screen-lg mx-auto px-6">
         <p className="text-4xl font-bold border-b-4 border-[#6f4e37] inline">
