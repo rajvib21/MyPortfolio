@@ -1,8 +1,9 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
-import resume from "../assets/resume.pdf"
+import resume from "../assets/resume.pdf";
+
 const SocialLinks = () => {
   const links = [
     {
@@ -12,7 +13,7 @@ const SocialLinks = () => {
           LinkedIn <FaLinkedin size={30} />
         </>
       ),
-      href: "https://linkedin.com/in/rahulkarda2002",
+      href: "https://www.linkedin.com/in/rajvi-bhatt-268bb0228/",
       style: "rounded-tr-md",
     },
     {
@@ -22,7 +23,7 @@ const SocialLinks = () => {
           GitHub <FaGithub size={30} />
         </>
       ),
-      href: "https://github.com/rahulkarda",
+      href: "https://github.com/rajvib21",
     },
     {
       id: 3,
@@ -31,7 +32,7 @@ const SocialLinks = () => {
           Email <HiOutlineMail size={30} />
         </>
       ),
-      href: "mailto:rahulkarda2002@gmail.com",
+      href: "mailto:rajvibhatt21@gmail.com",
     },
     {
       id: 4,
@@ -47,10 +48,10 @@ const SocialLinks = () => {
       id: 5,
       child: (
         <>
-          Twitter <FaTwitter size={30} />
+          YouTube <FaYoutube size={30} />
         </>
       ),
-      href: "https://twitter.com/rahulkarda2002",
+      href: "https://www.youtube.com/@rajvibhatt75",
       style: "rounded-br-md",
     },
   ];
@@ -62,8 +63,7 @@ const SocialLinks = () => {
           <li
             key={id}
             className={
-              "flex justify-between items-center w-40 h-14 px-4 ml-[-100px] hover:ml-[-10px] hover:rounded-md duration-300 bg-gray-500" +
-              " " +
+              "flex justify-between items-center w-40 h-14 px-4 ml-[-100px] hover:ml-[-10px] hover:rounded-md duration-300 bg-gray-500 " +
               style
             }
           >

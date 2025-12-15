@@ -1,79 +1,88 @@
 import React from "react";
-import api from "../assets/portfolio/api.jpg";
-import apod from "../assets/portfolio/apod.jpg";
-import iptracker from "../assets/portfolio/iptracker.jpg";
-import nftportal from "../assets/portfolio/nftportal.jpg";
-import webpostman from "../assets/portfolio/webpostman.jpg";
-import waveportal from "../assets/portfolio/waveportal.jpg";
+
+const projects = [
+  {
+    title: "AI Habit Tracker & Coach (Ollama LLM)",
+    github: "https://github.com/rajvib21/AI-Habit-Tracker",
+    youtube: "https://www.youtube.com/@rajvibhatt75",
+  },
+  {
+    title: "Surplus Food Tracker (AI + OCR + OpenCV + Recommender)",
+    github: "https://github.com/rajvib21/Surplus_Food_Tracker",
+    youtube: "https://www.youtube.com/@rajvibhatt75",
+  },
+  {
+    title: "AI Chatbot (LLM Based)",
+    github: "https://github.com/rajvib21/ChatBot-utility",
+    youtube: "https://www.youtube.com/@rajvibhatt75",
+  },
+  {
+    title: "Heart Attack Prediction (Decision Tree ML)",
+    github: "https://github.com/rajvib21/heart_attack_predictor_ml",
+    youtube: "#",
+  },
+  {
+    title: "Credit Card Fraud Detection (Power BI Dashboard)",
+    github: "https://github.com/rajvib21/Credit-Card-Fraud-Detection",
+    youtube: "#",
+  },
+  {
+    title: "StackIT – LLM Q&A React Platform",
+    github: "https://github.com/rajvib21/StackIT",
+    youtube: "#",
+  },
+  {
+    title: "Mother’s Day Game (Vanilla JavaScript)",
+    github: "https://github.com/rajvib21/mother-s_day_game",
+    youtube: "#",
+  },
+];
 
 const Portfolio = () => {
-  const portfolios = [
-    {
-      id: 1,
-      src: api,
-      link: 'https://crypto-info-api.cyclic.app/',
-      repo: 'https://github.com/rahulkarda/crypto-info-api'
-    },
-    {
-      id: 2,
-      src: webpostman,
-      link: 'https://webpostman.netlify.app/',
-      repo: 'https://github.com/rahulkarda/Web-Postman'
-    },
-    {
-      id: 3,
-      src: apod,
-      link: 'https://apodbyrahul.netlify.app/',
-      repo: 'https://github.com/rahulkarda/NASA-APOD'
-    },
-    {
-      id: 4,
-      src: waveportal,
-      link: 'https://waveatrahul.netlify.app/',
-      repo: 'https://github.com/rahulkarda/Wave-Portal'
-    },
-    {
-      id: 5,
-      src: nftportal,
-      link: 'https://nftportalbyrahul.netlify.app/',
-      repo: 'https://github.com/rahulkarda/NFT-Portal'
-    },
-    {
-      id: 6,
-      src: iptracker,
-      link: 'https://trackmyip.netlify.app/',
-      repo: 'https://github.com/rahulkarda/IP-Address-Tracker'
-    },
-  ];
-
   return (
     <div
       name="portfolio"
-      className="bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-screen portfolio"
+      className="bg-gradient-to-b from-[#f7efe5] to-[#a18276] py-20 text-black"
     >
-      <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
-        <div className="pb-8">
-          <p className="text-4xl font-bold inline border-b-4 border-gray-500">
-            Portfolio
-          </p>
-          <p className="py-6">Check out some of my work right here</p>
-        </div>
+      <div className="max-w-screen-lg mx-auto px-6">
+        <p className="text-4xl font-bold border-b-4 border-[#6f4e37] inline">
+          Portfolio
+        </p>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
-          {portfolios.map(({ id, src, link, repo }) => (
-            <div key={id} className="shadow-md shadow-gray-600 rounded-lg">
-              <img
-                src={src}
-                alt="projects"
-                className="rounded-md duration-200 hover:scale-105"
-              />
-              <div className="flex items-center justify-center">
-                <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105" onClick={ () => window.open(link, '_blank')}>
-                  Demo
-                </button>
-                <button className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105" onClick={ () => window.open(repo, '_blank')}>
+        <p className="mt-4 text-lg">
+          A collection of my AI, ML, and frontend projects built during my learning journey.
+        </p>
+
+        <div className="grid sm:grid-cols-2 gap-6 mt-8">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg shadow-md p-6 hover:scale-105 duration-300"
+            >
+              <h3 className="text-xl font-semibold mb-4">
+                {project.title}
+              </h3>
+
+              <div className="flex gap-4">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2 bg-[#6f4e37] text-white rounded-md hover:opacity-90"
+                >
                   GitHub
-                </button>
+                </a>
+
+                {project.youtube !== "#" && (
+                  <a
+                    href={project.youtube}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-4 py-2 border border-[#6f4e37] text-[#6f4e37] rounded-md hover:bg-[#6f4e37] hover:text-white"
+                  >
+                    YouTube
+                  </a>
+                )}
               </div>
             </div>
           ))}
