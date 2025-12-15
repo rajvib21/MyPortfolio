@@ -5,10 +5,11 @@ import profile from "../assets/p.jpeg";
 
 const Home = () => {
   return (
-    <div
-      name="home"
-      className="home min-h-screen w-full pt-24 bg-gradient-to-b from-[#f7efe5] to-[#a18276]"
-    >
+   <div
+  name="home"
+  className="home min-h-screen w-full pt-24 bg-gradient-to-b from-[#f7efe5] to-[#a18276]"
+>
+
       <div className="max-w-screen-lg mx-auto flex flex-col-reverse md:flex-row items-center justify-center h-full px-6">
 
         {/* TEXT SECTION */}

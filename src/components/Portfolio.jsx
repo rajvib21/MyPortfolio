@@ -42,7 +42,7 @@ const Portfolio = () => {
   return (
     <div
       name="portfolio"
-      className="bg-gradient-to-b from-[#f7efe5] to-[#a18276] py-20 text-black"
+      className="portfolio min-h-screen w-full pt-24 bg-gradient-to-b from-[#f7efe5] to-[#a18276] text-black"
     >
       <div className="max-w-screen-lg mx-auto px-6">
         <p className="text-4xl font-bold border-b-4 border-[#6f4e37] inline">
@@ -50,7 +50,8 @@ const Portfolio = () => {
         </p>
 
         <p className="mt-4 text-lg">
-          A collection of my AI, ML, and frontend projects built during my learning journey.
+          A collection of my AI, ML, and frontend projects built during my
+          learning journey.
         </p>
 
         <div className="grid sm:grid-cols-2 gap-6 mt-8">
@@ -78,7 +79,7 @@ const Portfolio = () => {
                     href={project.youtube}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-2 border border-[#6f4e37] text-[#6f4e37] rounded-md hover:bg-[#6f4e37] hover:text-white"
+                    className="px-4 py-2 border border-[#6f4e37] text-[#6f4e37] rounded-md hover:bg-[#6f4e37] hover:text-white duration-300"
                   >
                     YouTube
                   </a>
