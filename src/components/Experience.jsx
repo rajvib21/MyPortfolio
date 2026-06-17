@@ -1,120 +1,197 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 
-import html from "../assets/html.png";
-import css from "../assets/css.png";
-import javascript from "../assets/javascript.png";
-import reactImage from "../assets/react.png";
-import nextjs from "../assets/nextjs.png";
-import graphql from "../assets/graphql.png";
-import github from "../assets/github.png";
-import tailwind from "../assets/tailwind.png";
-import node from "../assets/node.png";
-import express from "../assets/express.png"
-import mongodb from "../assets/mongodb.png"
-import redux from "../assets/redux.png"
-const Experience = () => {
-  const techs = [
-    {
-      id: 1,
-      src: html,
-      title: "HTML",
-      style: "shadow-orange-500",
-    },
-    {
-      id: 2,
-      src: css,
-      title: "CSS",
-      style: "shadow-blue-500",
-    },
-    {
-      id: 3,
-      src: javascript,
-      title: "JavaScript",
-      style: "shadow-yellow-500",
-    },
-    {
-      id: 4,
-      src: reactImage,
-      title: "React",
-      style: "shadow-blue-600",
-    },
-    {
-      id: 5,
-      src: node,
-      title: "NodeJs",
-      style: "shadow-green-400",
-    },
-    {
-      id: 6,
-      src: nextjs,
-      title: "Next JS",
-      style: "shadow-white",
-    },
-    {
-      id: 7,
-      src: graphql,
-      title: "GraphQL",
-      style: "shadow-pink-400",
-    },
-    {
-      id: 8,
-      src: github,
-      title: "GitHub",
-      style: "shadow-gray-400",
-    },
-    {
-      id: 9,
-      src: tailwind,
-      title: "Tailwind",
-      style: "shadow-sky-400",
-    },
-    {
-      id: 10,
-      src: express,
-      title: "Express",
-      style: "shadow-white",
-    },
-    {
-      id: 11,
-      src: mongodb,
-      title: "MongoDB",
-      style: "shadow-green-500",
-    },
-    {
-      id: 12,
-      src: redux,
-      title: "Redux",
-      style: "shadow-purple-500",
-    },
-  ];
+const SKILL_CATEGORIES = [
+  {
+    title: "Programming Languages",
+    tag: "Core",
+    skills: ["Python", "SQL", "JavaScript"],
+  },
+  {
+    title: "Frameworks & APIs",
+    tag: "Backend / Frontend",
+    skills: ["FastAPI", "React.js", "REST APIs", "gRPC", "LangChain", "LangGraph"],
+  },
+  {
+    title: "AI / ML & Agentic Systems",
+    tag: "AI",
+    skills: [
+      "Machine Learning",
+      "Retrieval-Augmented Generation (RAG)",
+      "AI Agents",
+      "Model Context Protocol (MCP)",
+      "OpenAI Embeddings",
+      "Vector Search",
+    ],
+  },
+  {
+    title: "Databases & Caching",
+    tag: "Data",
+    skills: ["PostgreSQL", "MySQL", "SQLite", "ClickHouse", "Redis"],
+  },
+  {
+    title: "Cloud & DevOps",
+    tag: "Infrastructure",
+    skills: [
+      "Google Cloud Platform (GCP)",
+      "Docker",
+      "Kubernetes",
+      "CI/CD Pipelines",
+      "Linux",
+    ],
+  },
+  {
+    title: "Distributed Systems",
+    tag: "Architecture",
+    skills: [
+      "Apache Kafka",
+      "Celery",
+      "Microservices Architecture",
+      "Async Task Processing",
+    ],
+  },
+  {
+    title: "Tools & Platforms",
+    tag: "Tools",
+    skills: ["Git", "Linux", "Azure AI (AI-900)"],
+  },
+  {
+    title: "Soft Skills",
+    tag: "Human",
+    skills: [
+      "Problem Solving",
+      "Creative Thinking",
+      "Discipline & Focus",
+      "Continuous Learning",
+      "Collaboration",
+    ],
+  },
+];
+
+export default function Skills() {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const cards = ref.current?.querySelectorAll(".skill-card");
+    if (!cards) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e, i) => {
+          if (e.isIntersecting) {
+            setTimeout(() => {
+              e.target.style.opacity = "1";
+              e.target.style.transform = "translateY(0)";
+            }, i * 80);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    cards.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
   return (
-    <div
-      name="experience"
-      className="bg-gradient-to-b from-gray-800 to-black w-full h-screen experience"
-    >
-      <div className="max-w-screen-lg mx-auto p-4 flex flex-col justify-center w-full h-full text-white">
-        <div>
-          <p className="text-4xl font-bold border-b-4 border-gray-500 p-2 inline">
-            Experience
-          </p>
-          <p className="py-6">These are the technologies I've worked with and used them in my projects.</p>
-        </div>
+    <section id="skills" style={s.section}>
+      <div className="container">
+        <span className="section-tag">// 02 — Skills</span>
+        <h2 className="section-title">What I Work With</h2>
 
-        <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-8 text-center py-8 px-12 sm:px-0">
-          {techs.map(({ id, src, title, style }) => (
+        <div style={s.grid} ref={ref}>
+          {SKILL_CATEGORIES.map((cat, i) => (
             <div
-              key={id}
-              className={`shadow-md hover:scale-105 duration-500 py-2 rounded-lg ${style}`}
+              key={cat.title}
+              className="skill-card"
+              style={{
+                ...s.card,
+                opacity: 0,
+                transform: "translateY(18px)",
+                transition: `opacity 0.45s ease, transform 0.45s ease, border-color 0.2s ease, box-shadow 0.2s ease`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "var(--accent)";
+                e.currentTarget.style.boxShadow = "var(--shadow-sm)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "var(--border2)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
             >
-              <img src={src} alt="" className="w-20 mx-auto" />
-              <p className="mt-4">{title}</p>
+              <div style={s.cardHead}>
+                <span style={s.catTag}>{cat.tag}</span>
+                <h3 style={s.catTitle}>{cat.title}</h3>
+              </div>
+              <div style={s.skillList}>
+                {cat.skills.map((skill) => (
+                  <div key={skill} style={s.skillItem}>
+                    <span style={s.bullet}>→</span>
+                    <span style={s.skillName}>{skill}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
-};
+}
 
-export default Experience;
+const s = {
+  section: { background: "var(--bg-secondary)" },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+    gap: "1rem",
+  },
+  card: {
+    background: "var(--bg-tertiary)",
+    border: "1.5px solid var(--border2)",
+    padding: "1.25rem 1.25rem 1rem",
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.75rem",
+  },
+  cardHead: {
+    borderBottom: "1px solid var(--border)",
+    paddingBottom: "0.75rem",
+  },
+  catTag: {
+    fontFamily: "'Space Mono', monospace",
+    fontSize: "0.6rem",
+    color: "var(--accent)",
+    letterSpacing: "0.12em",
+    textTransform: "uppercase",
+    display: "block",
+    marginBottom: "0.3rem",
+    opacity: 0.8,
+  },
+  catTitle: {
+    fontSize: "0.85rem",
+    fontWeight: 700,
+    color: "var(--text-primary)",
+    letterSpacing: "-0.01em",
+    lineHeight: 1.3,
+  },
+  skillList: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "0.35rem",
+  },
+  skillItem: {
+    display: "flex",
+    alignItems: "baseline",
+    gap: "0.5rem",
+  },
+  bullet: {
+    fontFamily: "'Space Mono', monospace",
+    fontSize: "0.65rem",
+    color: "var(--accent)",
+    flexShrink: 0,
+  },
+  skillName: {
+    fontSize: "0.82rem",
+    color: "var(--text-secondary)",
+    lineHeight: 1.5,
+    transition: "color 0.2s ease",
+  },
+};
